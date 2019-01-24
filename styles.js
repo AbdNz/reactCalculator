@@ -55,7 +55,14 @@ const styles = StyleSheet.create({
     extraSpace: {
       flex: 0.5,
       backgroundColor: 'green'
-    }
+    },
+    box: {
+      width: 150,
+      height: 150,
+      alignSelf: 'flex-end',
+      backgroundColor: 'plum',
+      zIndex: 200,
+    },
   });
 
   export default styles;
