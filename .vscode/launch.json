@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug iOS",
+            "name": "iOS",
             "program": "${workspaceRoot}/.vscode/launchReactNative.js",
             "type": "reactnative",
             "request": "launch",
@@ -14,17 +14,7 @@
             "outDir": "${workspaceRoot}/.vscode/.react"
         },
         {
-            "name": "Emulator Android",
-            "program": "${workspaceRoot}/.vscode/launchReactNative.js",
-            "type": "reactnative",
-            "request": "launch",
-            "platform": "android",
-            "target": "simulator",
-            "sourceMaps": true,
-            "outDir": "${workspaceRoot}/.vscode/.react"
-        },
-        {
-            "name": "Device Android",
+            "name": "Android",
             "program": "${workspaceRoot}/.vscode/launchReactNative.js",
             "type": "reactnative",
             "request": "launch",

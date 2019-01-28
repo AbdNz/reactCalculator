@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, Alert, SafeAreaView} from 'react-native';
+import {Text, View, Alert, SafeAreaView, TouchableHighlight } from 'react-native';
 import {FlingGestureHandler, Directions, State, RectButton} from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import styles from '../styles';
@@ -82,14 +82,25 @@ export default class Calculator extends Component {
           })
       }
     }
+
+    operateLongPress(operation) {
+      switch(operation) {
+        case 'DEL':
+          this.setState({
+            resultText: "",
+            calculateResult: ""
+          })
+          break;
+      }
+    }
   
-    renderDrawer = () => {
-      return (
-        <View>
-          <Text>I am in the drawer!</Text>
-        </View>
-      );
-    };
+    // renderDrawer = () => {
+    //   return (
+    //     <View>
+    //       <Text>I am in the drawer!</Text>
+    //     </View>
+    //   );
+    // };
   
     render() {
       let rows = []
@@ -109,9 +120,10 @@ export default class Calculator extends Component {
       let ops = []
       for(let i=0; i<5; i++) {
         ops.push(
-          <RectButton style={styles.btn} key={this.operations[i]} onPress={()=>this.operate(this.operations[i])} >
+          <TouchableHighlight style={styles.btn} key={this.operations[i]} onPress={()=>this.operate(this.operations[i])} 
+              onLongPress={() => this.operateLongPress(this.operations[i])} >
             <Text style={styles.btnText}>{this.operations[i]}</Text>
-          </RectButton>
+          </TouchableHighlight>
         )
       }
   
@@ -119,12 +131,12 @@ export default class Calculator extends Component {
         <SafeAreaView style={{flex: 1}}>
           <View style={styles.container}>
           {/* <DraggableBox /> */}
-          <DrawerLayout
+          {/* <DrawerLayout
               drawerWidth={250}
               drawerPosition={DrawerLayout.positions.LEFT}
               drawerType='front'
               drawerBackgroundColor="#ddd"
-              renderNavigationView={this.renderDrawer}>
+              renderNavigationView={this.renderDrawer}> */}
             <View style={styles.result}>
               <Text style={styles.resultText}>{this.state.resultText}</Text>
             </View>
@@ -145,7 +157,7 @@ export default class Calculator extends Component {
                 <View style={styles.extraSpace}></View>
               </FlingGestureHandler>
             </View>
-            </DrawerLayout>
+            {/* </DrawerLayout> */}
           </View>
         </SafeAreaView>
       );

@@ -1371,7 +1371,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   _reactNative.AppRegistry.registerComponent(_app.name, function () {
     return _App.default;
   });
-},0,[1,2,540,666],"index.js");
+},0,[1,2,540,667],"index.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -86191,11 +86191,18 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "./node_modules/react-transform-hmr/lib/index.js"));
 
-  var _reactNavigation = _$$_REQUIRE(_dependencyMap[9], "react-navigation");
+  var _reactNative = _$$_REQUIRE(_dependencyMap[9], "react-native");
 
-  var _Calculator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "./Components/Calculator"));
+  var _reactNavigation = _$$_REQUIRE(_dependencyMap[10], "react-navigation");
 
-  var _jsxFileName = "/Users/affixus/workspace/reactNativeProj/reactCalculator/App.js";
+  var _Calculator = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "./components/Calculator"));
+
+  var _History = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "./components/History"));
+
+  var _class,
+      _temp,
+      _jsxFileName = "/Users/affixus/workspace/reactNativeProj/reactCalculator/App.js";
+
   var _components = {
     App: {
       displayName: "App"
@@ -86216,11 +86223,47 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   }
 
   var AppNavigator = (0, _reactNavigation.createStackNavigator)({
-    Home: _Calculator.default
+    Calculator: {
+      screen: _Calculator.default,
+      navigationOptions: function navigationOptions() {
+        return {
+          title: "Calculator",
+          headerBackTitle: null
+        };
+      }
+    },
+    History: {
+      screen: _History.default,
+      navigationOptions: function navigationOptions() {
+        return {
+          title: "History",
+          headerBackTitle: "Back"
+        };
+      }
+    }
+  }, {
+    initialRouteName: 'Calculator',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e'
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold'
+      }
+    }
   });
-  var AppContainer = (0, _reactNavigation.createAppContainer)(AppNavigator);
+  var DrawerNavigator = (0, _reactNavigation.createDrawerNavigator)({
+    History: {
+      screen: _History.default
+    },
+    Calculator: {
+      screen: _Calculator.default
+    }
+  });
+  var AppContainer = (0, _reactNavigation.createAppContainer)(DrawerNavigator);
 
-  var App = _wrapComponent("App")(function (_Component) {
+  var App = _wrapComponent("App")((_temp = _class = function (_Component) {
     (0, _inherits2.default)(App, _Component);
 
     function App() {
@@ -86234,17 +86277,35 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         return _react.default.createElement(AppContainer, {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 67
           }
         });
       }
     }]);
     return App;
-  }(_react.Component));
+  }(_react.Component), _class.navigationOptions = {
+    drawerLabel: 'Calculator',
+    drawerIcon: function drawerIcon(_ref) {
+      var tintColor = _ref.tintColor;
+      return _react.default.createElement(Image, {
+        source: _$$_REQUIRE(_dependencyMap[13], "./icons/hamburger-icon.png"),
+        style: [{
+          width: 24,
+          height: 24
+        }, {
+          tintColor: tintColor
+        }],
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 58
+        }
+      });
+    }
+  }, _temp));
 
   var _default2 = App;
   exports.default = _default2;
-},540,[1,541,19,20,27,30,33,46,184,542,664],"App.js");
+},540,[1,541,19,20,27,30,33,46,184,2,542,668,672,666],"App.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   function _interopRequireWildcard(obj) {
     if (obj && obj.__esModule) {
@@ -105507,6 +105568,24 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   exports.default = _default2;
 },663,[1,8,6,19,20,27,30,33,46,184,2],"node_modules/react-navigation-drawer/dist/views/TouchableItem.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  module.exports = _$$_REQUIRE(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+    "__packager_asset": true,
+    "httpServerLocation": "/assets/icons",
+    "width": 285,
+    "height": 228,
+    "scales": [1],
+    "hash": "10c660978ecd959eec4d40ec28da91b1",
+    "name": "hamburger-icon",
+    "type": "png"
+  });
+},666,[179],"icons/hamburger-icon.png");
+__d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
+  module.exports = {
+  "name": "Calculator",
+  "displayName": "Calculator"
+};
+},667,[],"app.json");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
 
   var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
@@ -105539,7 +105618,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var _styles = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[12], "../styles"));
 
   var _temp,
-      _jsxFileName = "/Users/affixus/workspace/reactNativeProj/reactCalculator/Components/Calculator.js";
+      _jsxFileName = "/Users/affixus/workspace/reactNativeProj/reactCalculator/components/Calculator.js";
 
   var _components = {
     Calculator: {
@@ -105548,7 +105627,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   };
 
   var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
-    filename: "/Users/affixus/workspace/reactNativeProj/reactCalculator/Components/Calculator.js",
+    filename: "/Users/affixus/workspace/reactNativeProj/reactCalculator/components/Calculator.js",
     components: _components,
     locals: [module],
     imports: [_react.default]
@@ -105581,20 +105660,6 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         _this.setState({
           resultText: _this.state.resultText + text
         });
-      };
-
-      _this.renderDrawer = function () {
-        return _react.default.createElement(_reactNative.View, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 88
-          }
-        }, _react.default.createElement(_reactNative.Text, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 89
-          }
-        }, "I am in the drawer!"));
       };
 
       _this.state = {
@@ -105667,6 +105732,18 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         }
       }
     }, {
+      key: "operateLongPress",
+      value: function operateLongPress(operation) {
+        switch (operation) {
+          case 'DEL':
+            this.setState({
+              resultText: "",
+              calculateResult: ""
+            });
+            break;
+        }
+      }
+    }, {
       key: "render",
       value: function render() {
         var _this2 = this;
@@ -105686,13 +105763,13 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 101
+                lineNumber: 112
               }
             }, _react.default.createElement(_reactNative.Text, {
               style: _styles.default.btnText,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 102
+                lineNumber: 113
               }
             }, nums[i][j])));
           };
@@ -105706,7 +105783,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
             style: _styles.default.row,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 106
+              lineNumber: 117
             }
           }, row));
         };
@@ -105718,21 +105795,24 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
         var ops = [];
 
         var _loop2 = function _loop2(i) {
-          ops.push(_react.default.createElement(_reactNativeGestureHandler.RectButton, {
+          ops.push(_react.default.createElement(_reactNative.TouchableHighlight, {
             style: _styles.default.btn,
             key: _this2.operations[i],
             onPress: function onPress() {
               return _this2.operate(_this2.operations[i]);
             },
+            onLongPress: function onLongPress() {
+              return _this2.operateLongPress(_this2.operations[i]);
+            },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 112
+              lineNumber: 123
             }
           }, _react.default.createElement(_reactNative.Text, {
             style: _styles.default.btnText,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 113
+              lineNumber: 125
             }
           }, _this2.operations[i])));
         };
@@ -105747,65 +105827,55 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 119
+            lineNumber: 131
           }
         }, _react.default.createElement(_reactNative.View, {
           style: _styles.default.container,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 120
-          }
-        }, _react.default.createElement(_DrawerLayout.default, {
-          drawerWidth: 250,
-          drawerPosition: _DrawerLayout.default.positions.LEFT,
-          drawerType: "front",
-          drawerBackgroundColor: "#ddd",
-          renderNavigationView: this.renderDrawer,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 122
+            lineNumber: 132
           }
         }, _react.default.createElement(_reactNative.View, {
           style: _styles.default.result,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 128
+            lineNumber: 140
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: _styles.default.resultText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 129
+            lineNumber: 141
           }
         }, this.state.resultText)), _react.default.createElement(_reactNative.View, {
           style: _styles.default.calculation,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 131
+            lineNumber: 143
           }
         }, _react.default.createElement(_reactNative.Text, {
           style: _styles.default.calculationText,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 132
+            lineNumber: 144
           }
         }, this.state.calculateResult)), _react.default.createElement(_reactNative.View, {
           style: _styles.default.buttons,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 134
+            lineNumber: 146
           }
         }, _react.default.createElement(_reactNative.View, {
           style: _styles.default.numbers,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 135
+            lineNumber: 147
           }
         }, rows), _react.default.createElement(_reactNative.View, {
           style: _styles.default.operations,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 136
+            lineNumber: 148
           }
         }, ops), _react.default.createElement(_reactNativeGestureHandler.FlingGestureHandler, {
           direction: _reactNativeGestureHandler.Directions.RIGHT | _reactNativeGestureHandler.Directions.LEFT,
@@ -105818,15 +105888,15 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 138
+            lineNumber: 150
           }
         }, _react.default.createElement(_reactNative.View, {
           style: _styles.default.extraSpace,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 145
+            lineNumber: 157
           }
-        }))))));
+        })))));
       }
     }]);
     return Calculator;
@@ -105834,7 +105904,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
 
   var _default2 = Calculator;
   exports.default = _default2;
-},664,[1,541,19,20,27,30,33,46,184,2,599,604,665],"Components/Calculator.js");
+},668,[1,541,19,20,27,30,33,46,184,2,599,604,665],"components/Calculator.js");
 __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -105880,7 +105950,8 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     },
     operations: {
       flex: 3,
-      backgroundColor: '#636363'
+      backgroundColor: '#636363',
+      justifyContent: 'space-evenly'
     },
     row: {
       flexDirection: 'row',
@@ -105888,7 +105959,8 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     },
     btn: {
       flex: 1,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      alignItems: 'center'
     },
     btnText: {
       fontSize: 36,
@@ -105911,12 +105983,965 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
   var _default = styles;
   exports.default = _default;
 },665,[2],"styles.js");
-__d(function(global, require, _aUnused, _bUnused, module, exports, _cUnused) {
-  module.exports = {
-  "name": "Calculator",
-  "displayName": "Calculator"
-};
-},666,[],"app.json");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/inherits"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[7], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[8], "./../node_modules/react-transform-hmr/lib/index.js"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[9], "react-native");
+
+  var _SlidingPanel = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "./SlidingPanel"));
+
+  var _SidePanel = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[11], "./SidePanel"));
+
+  var _jsxFileName = "/Users/affixus/workspace/reactNativeProj/reactCalculator/components/History.js";
+  var _components = {
+    History: {
+      displayName: "History"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/affixus/workspace/reactNativeProj/reactCalculator/components/History.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var _Dimensions$get = _reactNative.Dimensions.get('window'),
+      width = _Dimensions$get.width,
+      height = _Dimensions$get.height;
+
+  var History = _wrapComponent("History")(function (_Component) {
+    (0, _inherits2.default)(History, _Component);
+
+    function History() {
+      (0, _classCallCheck2.default)(this, History);
+      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(History).apply(this, arguments));
+    }
+
+    (0, _createClass2.default)(History, [{
+      key: "render",
+      value: function render() {
+        return _react.default.createElement(_reactNative.View, {
+          style: styles.container,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 11
+          }
+        }, _react.default.createElement(_reactNative.View, {
+          style: styles.bodyViewStyle,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12
+          }
+        }, _react.default.createElement(_reactNative.Text, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 13
+          }
+        }, "Hello My World")), _react.default.createElement(_SidePanel.default, {
+          headerLayoutWidth: 25,
+          panelPosition: 'left',
+          headerLayout: function headerLayout() {
+            return _react.default.createElement(_reactNative.View, {
+              style: styles.headerLayoutStyle,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 20
+              }
+            });
+          },
+          slidingPanelLayout: function slidingPanelLayout() {
+            return _react.default.createElement(_reactNative.View, {
+              style: styles.slidingPanelLayoutStyle,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 25
+              }
+            }, _react.default.createElement(_reactNative.Text, {
+              style: styles.commonTextStyle,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 26
+              }
+            }, "The best thing about me is you"));
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 16
+          }
+        }));
+      }
+    }]);
+    return History;
+  }(_react.Component));
+
+  var _default2 = History;
+  exports.default = _default2;
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      flex: 1
+    },
+    bodyViewStyle: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    headerLayoutStyle: {
+      width: 25,
+      height: height,
+      backgroundColor: 'orange',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    slidingPanelLayoutStyle: {
+      width: width,
+      height: height,
+      backgroundColor: '#7E52A0',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    commonTextStyle: {
+      color: 'white',
+      fontSize: 18
+    }
+  });
+},672,[1,541,19,20,27,30,33,46,184,2,673,708],"components/History.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/inherits"));
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/extends"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[8], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "./../node_modules/react-transform-hmr/lib/index.js"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[11], "react-native");
+
+  var _jsxFileName = "/Users/affixus/workspace/reactNativeProj/reactCalculator/components/SlidingPanel.js";
+  var _components = {
+    SlidingPanel: {
+      displayName: "SlidingPanel"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/affixus/workspace/reactNativeProj/reactCalculator/components/SlidingPanel.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var _Dimensions$get = _reactNative.Dimensions.get('window'),
+      width = _Dimensions$get.width,
+      height = _Dimensions$get.height;
+
+  var sliderPosition = 0;
+
+  var styles = _reactNative.StyleSheet.create({
+    headerPanelViewStyle: {
+      width: width,
+      backgroundColor: '#ff0032',
+      position: 'absolute',
+      alignSelf: 'flex-end',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1
+    }
+  });
+
+  var HeaderView = function HeaderView(props) {
+    return _react.default.createElement(_reactNative.View, {
+      style: {
+        backgroundColor: 'green'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      }
+    }, _react.default.createElement(_reactNative.Text, {
+      style: {
+        color: 'white'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      }
+    }, "Hello world"));
+  };
+
+  var SlidingPanelView = function SlidingPanelView(props) {
+    return _react.default.createElement(_reactNative.View, {
+      style: {
+        height: 200,
+        width: width,
+        backgroundColor: 'blue'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      }
+    }, _react.default.createElement(_reactNative.Text, {
+      style: {
+        color: 'white'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      }
+    }, "Hello world"));
+  };
+
+  var SlidingPanelIOS = function SlidingPanelIOS(props) {
+    return _react.default.createElement(_reactNative.Animated.View, {
+      style: props.panelPosition === 'bottom' ? {
+        bottom: props.heightAnim,
+        flex: 1,
+        position: 'absolute'
+      } : {
+        top: props.heightAnim,
+        flex: 1,
+        position: 'absolute'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      }
+    }, _react.default.createElement(_reactNative.Animated.View, (0, _extends2.default)({}, props.panResponder, {
+      style: {
+        height: props.headerPanelHeight
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
+      }
+    }), props.headerView()), _react.default.createElement(_reactNative.View, {
+      style: props.panelPosition === 'bottom' ? {
+        top: props.headerPanelHeight,
+        left: 0,
+        position: 'absolute'
+      } : {
+        bottom: props.headerPanelHeight,
+        left: 0,
+        position: 'absolute'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34
+      }
+    }, props.slidingPanelView()));
+  };
+
+  var SlidingPanelAndroid = function SlidingPanelAndroid(props) {
+    return _react.default.createElement(_reactNative.Animated.View, {
+      style: props.panelPosition === 'bottom' ? {
+        bottom: props.heightAnim,
+        flex: 1,
+        position: 'absolute'
+      } : {
+        top: props.heightAnim,
+        flex: 1,
+        position: 'absolute'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      }
+    }, _react.default.createElement(_reactNative.Animated.View, (0, _extends2.default)({}, props.panResponder, {
+      style: {
+        height: props.headerPanelHeight
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42
+      }
+    }), props.headerView()), _react.default.createElement(_reactNative.Animated.View, {
+      style: props.panelPosition === 'bottom' ? {
+        top: props.headerPanelHeight,
+        left: 0,
+        position: 'absolute'
+      } : {
+        bottom: props.headerPanelHeight,
+        left: 0,
+        position: 'absolute'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 46
+      }
+    }, props.slidingPanelView()));
+  };
+
+  var SlidingPanel = _wrapComponent("SlidingPanel")(function (_Component) {
+    (0, _inherits2.default)(SlidingPanel, _Component);
+
+    function SlidingPanel(props) {
+      var _this;
+
+      (0, _classCallCheck2.default)(this, SlidingPanel);
+      _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(SlidingPanel).call(this, props));
+      _this.state = {
+        heightAnim: new _reactNative.Animated.Value(0),
+        panResponder: {}
+      };
+      return _this;
+    }
+
+    (0, _createClass2.default)(SlidingPanel, [{
+      key: "componentWillMount",
+      value: function componentWillMount() {
+        var _this2 = this;
+
+        var a = 0;
+        this.state.panResponder = _reactNative.PanResponder.create({
+          onStartShouldSetPanResponder: function onStartShouldSetPanResponder() {
+            return true;
+          },
+          onPanResponderGrant: function onPanResponderGrant(evt, gestureState) {
+            a = 0;
+          },
+          onPanResponderMove: function onPanResponderMove(event, gestureState) {
+            if (_this2.props.allowDragging) {
+              if (a === 0) {
+                _this2.props.onDragStart(event, gestureState);
+              } else {
+                _this2.props.onDrag(event, gestureState);
+              }
+
+              if (_this2.props.panelPosition === 'bottom') {
+                a = gestureState.dy * -1;
+              } else {
+                a = gestureState.dy * 1;
+              }
+
+              if ((_reactNative.Platform.OS === 'android' ? sliderPosition + a < height - (_this2.props.headerLayoutHeight + 25) : sliderPosition + a < height - (_this2.props.headerLayoutHeight - 2)) && sliderPosition + a > -2) {
+                if (sliderPosition !== 0) {
+                  _this2.state.heightAnim.setValue(sliderPosition + a);
+                } else {
+                  _this2.state.heightAnim.setValue(a);
+                }
+              }
+            }
+          },
+          onPanResponderRelease: function onPanResponderRelease(e, gesture) {
+            sliderPosition = sliderPosition + a;
+
+            if (a !== 0) {
+              _this2.props.onDragStop(e, gesture);
+            }
+
+            if (_this2.props.allowAnimation) {
+              if (a === 0 || (_this2.props.panelPosition === 'bottom' ? gesture.vy < -1 : gesture.vy > 1)) {
+                if (sliderPosition < height - _this2.props.headerLayoutHeight) {
+                  sliderPosition = height - _this2.props.headerLayoutHeight;
+
+                  _this2.props.onAnimationStart();
+
+                  _reactNative.Animated.timing(_this2.state.heightAnim, {
+                    toValue: _reactNative.Platform.OS === 'android' ? height - _this2.props.headerLayoutHeight - 25 : height - _this2.props.headerLayoutHeight,
+                    duration: _this2.props.AnimationSpeed
+                  }).start(function () {
+                    return _this2.props.onAnimationStop();
+                  });
+                } else {
+                  sliderPosition = 0;
+
+                  _this2.props.onAnimationStart();
+
+                  _reactNative.Animated.timing(_this2.state.heightAnim, {
+                    toValue: 0,
+                    duration: _this2.props.AnimationSpeed
+                  }).start(function () {
+                    return _this2.props.onAnimationStop();
+                  });
+                }
+              }
+
+              if (_this2.props.panelPosition === 'bottom' ? gesture.vy > 1 : gesture.vy < -1) {
+                sliderPosition = 0;
+
+                _this2.props.onAnimationStart();
+
+                _reactNative.Animated.timing(_this2.state.heightAnim, {
+                  toValue: 0,
+                  duration: _this2.props.AnimationSpeed
+                }).start(function () {
+                  return _this2.props.onAnimationStop();
+                });
+              }
+            }
+          }
+        });
+      }
+    }, {
+      key: "onRequestClose",
+      value: function onRequestClose() {
+        sliderPosition = 0;
+
+        _reactNative.Animated.timing(this.state.heightAnim, {
+          toValue: 0,
+          duration: this.props.AnimationSpeed
+        }).start();
+      }
+    }, {
+      key: "onRequestStart",
+      value: function onRequestStart() {
+        sliderPosition = height - this.props.headerLayoutHeight;
+
+        _reactNative.Animated.timing(this.state.heightAnim, {
+          toValue: _reactNative.Platform.OS === 'android' ? height - this.props.headerLayoutHeight - 25 : height - this.props.headerLayoutHeight,
+          duration: this.props.AnimationSpeed
+        }).start();
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var _this3 = this;
+
+        return _react.default.createElement(_reactNative.View, {
+          style: this.props.panelPosition === 'bottom' ? {
+            position: 'absolute',
+            bottom: 0
+          } : {
+            position: 'absolute',
+            top: 0
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 164
+          }
+        }, _reactNative.Platform.OS === 'ios' && this.props.visible === true ? _react.default.createElement(SlidingPanelIOS, {
+          panResponder: this.state.panResponder.panHandlers,
+          panelPosition: this.props.panelPosition,
+          headerPanelHeight: this.props.headerLayoutHeight,
+          headerView: function headerView() {
+            return _this3.props.headerLayout();
+          },
+          heightAnim: this.state.heightAnim,
+          visible: this.props.visible,
+          slidingPanelView: function slidingPanelView() {
+            return _this3.props.slidingPanelLayout();
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 167
+          }
+        }) : this.props.visible === true && _react.default.createElement(SlidingPanelAndroid, {
+          panResponder: this.state.panResponder.panHandlers,
+          panelPosition: this.props.panelPosition,
+          headerPanelHeight: this.props.headerLayoutHeight,
+          headerView: function headerView() {
+            return _this3.props.headerLayout();
+          },
+          heightAnim: this.state.heightAnim,
+          visible: this.props.visible,
+          slidingPanelView: function slidingPanelView() {
+            return _this3.props.slidingPanelLayout();
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 176
+          }
+        }));
+      }
+    }]);
+    return SlidingPanel;
+  }(_react.Component));
+
+  var _default2 = SlidingPanel;
+  exports.default = _default2;
+  SlidingPanel.propTypes = {
+    headerLayoutHeight: _propTypes.default.number.isRequired,
+    headerLayout: _propTypes.default.func.isRequired,
+    slidingPanelLayout: _propTypes.default.func.isRequired,
+    AnimationSpeed: _propTypes.default.number,
+    slidingPanelLayoutHeight: _propTypes.default.number,
+    panelPosition: _propTypes.default.string,
+    visible: _propTypes.default.bool,
+    allowDragging: _propTypes.default.bool,
+    allowAnimation: _propTypes.default.bool,
+    onDragStart: function onDragStart(event, gestureState) {},
+    onDragStop: function onDragStop(event, gestureState) {},
+    onDrag: function onDrag(event, gestureState) {},
+    onAnimationStart: function onAnimationStart() {},
+    onAnimationStop: function onAnimationStop() {}
+  };
+  SlidingPanel.defaultProps = {
+    panelPosition: 'bottom',
+    headerLayoutHeight: 50,
+    headerLayout: function headerLayout() {},
+    visible: true,
+    onDragStart: function onDragStart(event, gestureState) {},
+    onDragStop: function onDragStop(event, gestureState) {},
+    onDrag: function onDrag(event, gestureState) {},
+    onAnimationStart: function onAnimationStart() {},
+    onAnimationStop: function onAnimationStop() {},
+    slidingPanelLayout: function slidingPanelLayout() {},
+    allowDragging: true,
+    allowAnimation: true,
+    slidingPanelLayoutHeight: 0,
+    AnimationSpeed: 1000
+  };
+},673,[1,541,19,20,27,30,33,8,46,184,63,2],"components/SlidingPanel.js");
+__d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, exports, _dependencyMap) {
+  var _interopRequireDefault = _$$_REQUIRE(_dependencyMap[0], "@babel/runtime/helpers/interopRequireDefault");
+
+  var _interopRequireWildcard = _$$_REQUIRE(_dependencyMap[1], "@babel/runtime/helpers/interopRequireWildcard");
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _classCallCheck2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[2], "@babel/runtime/helpers/classCallCheck"));
+
+  var _createClass2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[3], "@babel/runtime/helpers/createClass"));
+
+  var _possibleConstructorReturn2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[4], "@babel/runtime/helpers/possibleConstructorReturn"));
+
+  var _getPrototypeOf2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[5], "@babel/runtime/helpers/getPrototypeOf"));
+
+  var _inherits2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[6], "@babel/runtime/helpers/inherits"));
+
+  var _extends2 = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[7], "@babel/runtime/helpers/extends"));
+
+  var _react = _interopRequireWildcard(_$$_REQUIRE(_dependencyMap[8], "react"));
+
+  var _index = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[9], "./../node_modules/react-transform-hmr/lib/index.js"));
+
+  var _propTypes = _interopRequireDefault(_$$_REQUIRE(_dependencyMap[10], "prop-types"));
+
+  var _reactNative = _$$_REQUIRE(_dependencyMap[11], "react-native");
+
+  var _jsxFileName = "/Users/affixus/workspace/reactNativeProj/reactCalculator/components/SidePanel.js";
+  var _components = {
+    SidePanel: {
+      displayName: "SidePanel"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index.default)({
+    filename: "/Users/affixus/workspace/reactNativeProj/reactCalculator/components/SidePanel.js",
+    components: _components,
+    locals: [module],
+    imports: [_react.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var _Dimensions$get = _reactNative.Dimensions.get("window"),
+      width = _Dimensions$get.width,
+      height = _Dimensions$get.height;
+
+  var sliderPosition = 0;
+
+  var styles = _reactNative.StyleSheet.create({
+    headerPanelViewStyle: {
+      height: height,
+      backgroundColor: '#ff0032',
+      position: 'absolute',
+      alignSelf: 'flex-end',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1
+    }
+  });
+
+  var HeaderView = function HeaderView(props) {
+    return _react.default.createElement(_reactNative.View, {
+      style: {
+        backgroundColor: 'green'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      }
+    }, _react.default.createElement(_reactNative.Text, {
+      style: {
+        color: 'white'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 21
+      }
+    }, "Hello world"));
+  };
+
+  var SlidingPanelView = function SlidingPanelView(props) {
+    return _react.default.createElement(_reactNative.View, {
+      style: {
+        height: 200,
+        width: width,
+        backgroundColor: 'blue'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      }
+    }, _react.default.createElement(_reactNative.Text, {
+      style: {
+        color: 'white'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      }
+    }, "Hello world"));
+  };
+
+  var SlidingPanelIOS = function SlidingPanelIOS(props) {
+    return _react.default.createElement(_reactNative.Animated.View, {
+      style: props.panelPosition === 'left' ? {
+        left: props.widthAnim,
+        flex: 1,
+        position: 'absolute'
+      } : {
+        right: props.widthAnim,
+        flex: 1,
+        position: 'absolute'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      }
+    }, _react.default.createElement(_reactNative.Animated.View, (0, _extends2.default)({}, props.panResponder, {
+      style: {
+        width: props.headerPanelWidth
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
+      }
+    }), props.headerView()), _react.default.createElement(_reactNative.View, {
+      style: props.panelPosition === 'left' ? {
+        right: props.headerPanelWidth,
+        top: 0,
+        position: 'absolute'
+      } : {
+        left: props.headerPanelWidth,
+        top: 0,
+        position: 'absolute'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33
+      }
+    }, props.slidingPanelView()));
+  };
+
+  var SlidingPanelAndroid = function SlidingPanelAndroid(props) {
+    return _react.default.createElement(_reactNative.Animated.View, {
+      style: props.panelPosition === 'left' ? {
+        left: props.widthAnim,
+        flex: 1,
+        position: 'absolute'
+      } : {
+        right: props.widthAnim,
+        flex: 1,
+        position: 'absolute'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      }
+    }, _react.default.createElement(_reactNative.Animated.View, (0, _extends2.default)({}, props.panResponder, {
+      style: {
+        width: props.headerPanelWidth
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      }
+    }), props.headerView()), _react.default.createElement(_reactNative.Animated.View, {
+      style: props.panelPosition === 'left' ? {
+        right: props.headerPanelWidth,
+        top: 0,
+        position: 'absolute'
+      } : {
+        left: props.headerPanelWidth,
+        top: 0,
+        position: 'absolute'
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
+      }
+    }, props.slidingPanelView()));
+  };
+
+  var SidePanel = _wrapComponent("SidePanel")(function (_Component) {
+    (0, _inherits2.default)(SidePanel, _Component);
+
+    function SidePanel(props) {
+      var _this;
+
+      (0, _classCallCheck2.default)(this, SidePanel);
+      _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(SidePanel).call(this, props));
+      _this.state = {
+        widthAnim: new _reactNative.Animated.Value(0),
+        panResponder: {}
+      };
+      return _this;
+    }
+
+    (0, _createClass2.default)(SidePanel, [{
+      key: "componentWillMount",
+      value: function componentWillMount() {
+        var _this2 = this;
+
+        var a = 0;
+        this.state.panResponder = _reactNative.PanResponder.create({
+          onStartShouldSetPanResponder: function onStartShouldSetPanResponder() {
+            return true;
+          },
+          onPanResponderGrant: function onPanResponderGrant(evt, gestureState) {
+            a = 0;
+          },
+          onPanResponderMove: function onPanResponderMove(event, gestureState) {
+            if (_this2.props.allowDragging) {
+              if (a === 0) {
+                _this2.props.onDragStart(event, gestureState);
+              } else {
+                _this2.props.onDrag(event, gestureState);
+              }
+
+              if (_this2.props.panelPosition === 'left') {
+                a = gestureState.dx * 1;
+              } else {
+                a = gestureState.dx * -1;
+              }
+
+              console.log("Slider Position: " + sliderPosition + " a: " + a + " width: " + width);
+
+              if (sliderPosition + a < width - (_this2.props.headerLayoutWidth - 2) && sliderPosition + a > -2) {
+                console.log("Dragging " + (sliderPosition + a) + " < " + (width - 23) + " && " + (sliderPosition + a) + " > -2");
+
+                if (sliderPosition !== 0) {
+                  _this2.state.widthAnim.setValue(sliderPosition + a);
+                } else {
+                  _this2.state.widthAnim.setValue(a);
+                }
+              }
+            }
+          },
+          onPanResponderRelease: function onPanResponderRelease(e, gesture) {
+            sliderPosition = sliderPosition + a;
+
+            if (a !== 0) {
+              _this2.props.onDragStop(e, gesture);
+            }
+
+            if (_this2.props.allowAnimation) {
+              if (a === 0 || (_this2.props.panelPosition === 'left' ? gesture.vx < -1 : gesture.vx > 1)) {
+                if (sliderPosition < width - _this2.props.headerLayoutWidth) {
+                  sliderPosition = width - _this2.props.headerLayoutWidth;
+
+                  _this2.props.onAnimationStart();
+
+                  _reactNative.Animated.timing(_this2.state.widthAnim, {
+                    toValue: width - _this2.props.headerLayoutWidth,
+                    duration: _this2.props.AnimationSpeed
+                  }).start(function () {
+                    return _this2.props.onAnimationStop();
+                  });
+                } else {
+                  sliderPosition = 0;
+
+                  _this2.props.onAnimationStart();
+
+                  _reactNative.Animated.timing(_this2.state.widthAnim, {
+                    toValue: 0,
+                    duration: _this2.props.AnimationSpeed
+                  }).start(function () {
+                    return _this2.props.onAnimationStop();
+                  });
+                }
+              }
+
+              if (_this2.props.panelPosition === 'left' ? gesture.vx > 1 : gesture.vx < -1) {
+                sliderPosition = 0;
+
+                _this2.props.onAnimationStart();
+
+                _reactNative.Animated.timing(_this2.state.widthAnim, {
+                  toValue: 0,
+                  duration: _this2.props.AnimationSpeed
+                }).start(function () {
+                  return _this2.props.onAnimationStop();
+                });
+              }
+            }
+          }
+        });
+      }
+    }, {
+      key: "onRequestClose",
+      value: function onRequestClose() {
+        sliderPosition = 0;
+        console.log("ReqClose SliderPosition " + sliderPosition);
+
+        _reactNative.Animated.timing(this.state.widthAnim, {
+          toValue: 0,
+          duration: this.props.AnimationSpeed
+        }).start();
+      }
+    }, {
+      key: "onRequestStart",
+      value: function onRequestStart() {
+        sliderPosition = width - this.props.headerLayoutWidth;
+        console.log("ReqStart SliderPosition " + sliderPosition);
+
+        _reactNative.Animated.timing(this.state.widthAnim, {
+          toValue: width - this.props.headerLayoutWidth,
+          duration: this.props.AnimationSpeed
+        }).start();
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        var _this3 = this;
+
+        return _react.default.createElement(_reactNative.View, {
+          style: this.props.panelPosition === 'left' ? {
+            position: 'absolute',
+            left: 0
+          } : {
+            position: 'absolute',
+            right: 0
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 169
+          }
+        }, _reactNative.Platform.OS === 'ios' && this.props.visible === true ? _react.default.createElement(SlidingPanelIOS, {
+          panResponder: this.state.panResponder.panHandlers,
+          panelPosition: this.props.panelPosition,
+          headerPanelWidth: this.props.headerLayoutWidth,
+          headerView: function headerView() {
+            return _this3.props.headerLayout();
+          },
+          widthAnim: this.state.widthAnim,
+          visible: this.props.visible,
+          slidingPanelView: function slidingPanelView() {
+            return _this3.props.slidingPanelLayout();
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 172
+          }
+        }) : this.props.visible === true && _react.default.createElement(SlidingPanelAndroid, {
+          panResponder: this.state.panResponder.panHandlers,
+          panelPosition: this.props.panelPosition,
+          headerPanelWidth: this.props.headerLayoutWidth,
+          headerView: function headerView() {
+            return _this3.props.headerLayout();
+          },
+          widthAnim: this.state.widthAnim,
+          visible: this.props.visible,
+          slidingPanelView: function slidingPanelView() {
+            return _this3.props.slidingPanelLayout();
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 181
+          }
+        }));
+      }
+    }]);
+    return SidePanel;
+  }(_react.Component));
+
+  var _default2 = SidePanel;
+  exports.default = _default2;
+  SidePanel.propTypes = {
+    visible: _propTypes.default.bool,
+    allowDragging: _propTypes.default.bool,
+    allowAnimation: _propTypes.default.bool,
+    AnimationSpeed: _propTypes.default.number,
+    panelPosition: _propTypes.default.string,
+    headerLayoutWidth: _propTypes.default.number.isRequired,
+    slidingPanelLayoutWidth: _propTypes.default.number,
+    headerLayout: _propTypes.default.func.isRequired,
+    slidingPanelLayout: _propTypes.default.func.isRequired,
+    onDragStart: function onDragStart(event, gestureState) {},
+    onDragStop: function onDragStop(event, gestureState) {},
+    onDrag: function onDrag(event, gestureState) {},
+    onAnimationStart: function onAnimationStart() {},
+    onAnimationStop: function onAnimationStop() {}
+  };
+  SidePanel.defaultProps = {
+    visible: true,
+    allowDragging: true,
+    allowAnimation: true,
+    AnimationSpeed: 1000,
+    panelPosition: 'left',
+    headerLayoutWidth: 25,
+    slidingPanelLayoutWidth: 0,
+    headerLayout: function headerLayout() {},
+    slidingPanelLayout: function slidingPanelLayout() {},
+    onDragStart: function onDragStart(event, gestureState) {},
+    onDragStop: function onDragStop(event, gestureState) {},
+    onDrag: function onDrag(event, gestureState) {},
+    onAnimationStart: function onAnimationStart() {},
+    onAnimationStop: function onAnimationStop() {}
+  };
+},708,[1,541,19,20,27,30,33,8,46,184,63,2],"components/SidePanel.js");
 __r(82);
 __r(0);
 //# sourceMappingURL=index.map

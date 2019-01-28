@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     },
     operations: {
       flex: 3,
-      backgroundColor: '#636363'
+      backgroundColor: '#636363',
+      justifyContent:'space-evenly'
     },
     row: {
       flexDirection: 'row',
@@ -46,6 +47,7 @@ const styles = StyleSheet.create({
     btn: {
       flex:1,
       justifyContent: 'center',
+      alignItems: 'center',
     },
     btnText: {
       fontSize: 36,
